@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-canvas text-ink font-body antialiased;
+}
+
+::selection {
+  @apply bg-sun-100 text-sun-700;
+}
+
+:focus-visible {
+  outline: 2px solid #F59E0B;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted/70 transition-colors duration-150 focus:border-sun-500 focus:ring-2 focus:ring-sun-100 outline-none;
+  }
+
+  .chip {
+    @apply cursor-pointer rounded-xl border border-line bg-white px-4 py-3 text-sm font-medium text-ink text-center transition-all duration-150 hover:border-sun-400 select-none;
+  }
+
+  .chip-active {
+    @apply border-sun-500 bg-sun-50 text-sun-700 ring-2 ring-sun-100;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
